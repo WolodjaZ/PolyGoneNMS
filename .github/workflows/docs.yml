@@ -1,0 +1,48 @@
+name: Docs
+
+# on:
+#   release:
+#     types: [published]
+on:
+  push:
+      branches:
+      - main
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code 📂
+      uses: actions/checkout@v3
+
+    - name: Set up Python 🐍
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        cache: pip # Cache the pip dependencies
+
+    - name: Install dependencies 🛠️
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-docs.txt
+
+    - name: Get the ChangeLog 📝
+      run: |
+        cp CHANGELOG.md docs/changelog.md
+
+    - name: Get Version from VERSION file
+      run: |
+        echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+    - name: Build documentation 📄
+      run: |
+        mkdocs build
+
+    - name: Deploy with Mike
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        mike deploy ${VERSION} --push --update-alias --remote origin --branch gh-pages --force
+        mike set-default ${VERSION}  --push --remote origin --branch gh-pages --force
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

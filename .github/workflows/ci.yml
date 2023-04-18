@@ -1,0 +1,78 @@
+name: CI
+
+on:
+    push:
+        branches:
+        - main
+    pull_request:
+
+jobs:
+    test:
+        name: Test
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+              python-version:
+                - "3.8"
+                - "3.9"
+                - "3.10"
+                - "3.11"
+              os:
+                - ubuntu-latest
+                - windows-latest
+                - macos-latest
+              arch:
+                - x64
+        steps:
+            - name: Checkout code 📂
+              uses: actions/checkout@v3
+            - name: Set up Python 🐍
+              uses: actions/setup-python@v4
+              with:
+                python-version: ${{ matrix.python-version }}
+                cache: 'pip' # caching pip dependencies
+            - name: Install dependencies 🛠️
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements-dev.txt
+            - name: Clear code 🧹
+              uses: pre-commit/action@v3.0.0
+              with:
+                extra_args: --all-files
+            - name: Run tests 🧪
+              run: |
+                pytest --cov=polygone_nms --cov-config=setup.cfg --cov-report=xml tests
+            - name: Upload coverage report to Codecov 📈
+              if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.8' }}
+              uses: codecov/codecov-action@v2
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
+                file: ./coverage.xml
+
+    analyze:
+        name: Analyze
+        needs: test
+        runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            security-events: write
+        strategy:
+            fail-fast: false
+            matrix:
+                language:
+                    - python
+        steps:
+            - name: Checkout code 📂
+              uses: actions/checkout@v3
+            - name: Initialize CodeQL 🧬
+              uses: github/codeql-action/init@v2
+              with:
+                languages: ${{ matrix.language }}
+            - name: Autobuild 🤖
+              uses: github/codeql-action/autobuild@v2
+            - name: Perform CodeQL Analysis 🔍
+              uses: github/codeql-action/analyze@v2
+              with:
+                category: "/language:${{matrix.language}}"

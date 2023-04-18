@@ -1,0 +1,26 @@
+site_name: PolyGoneNMS
+
+nav:
+  - Home 🏠: index.md
+  - Quickstart 🚀: quickstart.md
+  - API Reference 📖: api_reference.md
+  - Changelog 📝: changelog.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_root_heading: true
+            show_source: true
+  - mike:
+
+theme: material
+extra:
+  version:
+    provider: mike
+
+watch:
+  - polygone_nms  # reload docs for any file changes
