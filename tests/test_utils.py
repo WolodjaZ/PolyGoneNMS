@@ -18,13 +18,19 @@ def bbox_to_polygon(bbox):
         [0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0],
         [2.0, 0.0, 3.0, 0.0, 3.0, 1.0, 2.0, 1.0, 2.0, 0.0],
         [1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0],
+        [1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 1.0],
     ],
 )
 def test_create_polygone(polygon_list):
-    polygon = create_polygon(np.array(polygon_list))
-    assert polygon is not None
-    assert isinstance(polygon, Polygon)
-    assert polygon.is_valid
+    if len(polygon_list) % 2 != 0:
+        with pytest.raises(ValueError) as excinfo:
+            create_polygon(np.array(polygon_list))
+        assert "The number of coordinates must be even" in str(excinfo.value)
+    else:
+        polygon = create_polygon(np.array(polygon_list))
+        assert polygon is not None
+        assert isinstance(polygon, Polygon)
+        assert polygon.is_valid
 
 
 def test_build_rtree():
