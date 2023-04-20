@@ -3,7 +3,16 @@ import pytest
 import rtree
 from shapely.geometry import Polygon
 
-from polygone_nms.utils import build_rtree, create_polygon, dfs, dice, ios, iot, iou
+from polygone_nms.utils import (
+    bbox_to_polygon_array,
+    build_rtree,
+    create_polygon,
+    dfs,
+    dice,
+    ios,
+    iot,
+    iou,
+)
 
 
 def bbox_to_polygon(bbox):
@@ -12,16 +21,24 @@ def bbox_to_polygon(bbox):
     )
 
 
+def test_bbox_to_polygon_array():
+    bbox_array = np.array([0, 0, 1, 1])
+    polygon_array = bbox_to_polygon_array(bbox_array)
+    assert polygon_array.shape == (8,)
+    assert (polygon_array == np.array([0, 0, 1, 0, 1, 1, 0, 1])).all()
+
+
 @pytest.mark.parametrize(
     "polygon_list",
     [
+        [0.0, 0.0, 1.0, 1.0],
         [0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0],
         [2.0, 0.0, 3.0, 0.0, 3.0, 1.0, 2.0, 1.0, 2.0, 0.0],
         [1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0],
         [1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 1.0],
     ],
 )
-def test_create_polygone(polygon_list):
+def test_create_polygon(polygon_list):
     if len(polygon_list) % 2 != 0:
         with pytest.raises(ValueError) as excinfo:
             create_polygon(np.array(polygon_list))
