@@ -6,6 +6,30 @@ from rtree import index
 from shapely.geometry import Polygon
 
 
+def bbox_to_polygon_array(coords: np.ndarray) -> np.ndarray:
+    """
+    Convert bbox [xmin, ymin, xmax, ymax] to polygon format
+    [xmin, ymin, xmax, ymin, xmax, ymax, xmin, ymax]
+
+    Args:
+        coords (np.ndarray): bbox coordinates
+    Returns:
+        np.ndarray: polygon coordinates
+    """
+    return np.array(
+        [
+            coords[0],
+            coords[1],
+            coords[2],
+            coords[1],
+            coords[2],
+            coords[3],
+            coords[0],
+            coords[3],
+        ]
+    )
+
+
 def create_polygon(coords: np.ndarray, none_value: float = -1.0) -> Polygon:
     """
     Create a Shapely Polygon from a numpy array row of coordinates.
@@ -54,6 +78,9 @@ def create_polygon(coords: np.ndarray, none_value: float = -1.0) -> Polygon:
     if coords.shape[0] % 2 != 0:
         raise ValueError("The number of coordinates must be even.")
     assert coords.shape[0] % 2 == 0, "The number of coordinates must be even."
+
+    if coords.shape[0] == 4:
+        coords = bbox_to_polygon_array(coords)
 
     points = [
         (coords[i], coords[i + 1])
