@@ -1,6 +1,6 @@
 # Import necessary libraries
 import functools
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, List, Optional, Tuple, Union
 
 import numpy as np
 import rtree
@@ -196,7 +196,7 @@ def apply_distributed_polygon_nms(
 
 
 def nms(
-    input_data: np.ndarray,
+    input_data: Union[np.ndarray, Tuple[Polygon, float, float]],
     distributed: Optional[str] = None,
     nms_method: str = "Default",
     intersection_method: str = "IOU",
@@ -209,9 +209,10 @@ def nms(
     Method works with distributed computing for efficient processing and clustering.
 
     Args:
-        input_data (np.ndarray): Array of polygons.
-            Each polygon is represented by a 1D array of n % 2 coordinates
-            (x1, y1, x2, y2, .., x(n-1), y(n-1), class, score).
+        input_data (Union[np.ndarray, Tuple[Polygon, float, float]]):
+            List of tuples of Polygon, class, score or numpy array of polygons.
+            Each polygon in the numpy array is represented by a 1D array of n % 2
+            coordinates (x1, y1, x2, y2, .., x(n-1), y(n-1), class, score).
         distributed (Optional[str], optional):
             The distributed computing method to use,
             one of (None, "Ray", "Dask").. Defaults to None.
@@ -232,8 +233,14 @@ def nms(
         List[int]: List of indices of the kept polygons.
     """
     # Check if the input data is a list of polygons or a 2D NumPy array
+    polygons = []
     if isinstance(input_data, list):
-        input_data = np.array(input_data)
+        if len(input_data) == 0:
+            return []
+        elif isinstance(input_data[0], tuple):
+            polygons = input_data
+        else:
+            input_data = np.array(input_data)
     elif not isinstance(input_data, np.ndarray):
         raise ValueError(
             "Invalid input data type. Expected a list of polygons or a 2D NumPy array."
@@ -271,13 +278,13 @@ def nms(
     intersection_func = INTERSECTION_METHODS[intersection_method]
 
     # Convert input data to Shapely Polygons and store class and confidence
-    polygons = []
-    for row in input_data:
-        polygon_coords = row[:-2]
-        class_label = row[-2]
-        confidence = row[-1]
-        polygon = create_polygon(polygon_coords)
-        polygons.append((polygon, class_label, confidence))
+    if len(polygons) == 0:
+        for row in input_data:
+            polygon_coords = row[:-2]
+            class_label = row[-2]
+            confidence = row[-1]
+            polygon = create_polygon(polygon_coords)
+            polygons.append((polygon, class_label, confidence))
 
     # Build R-Tree index
     rtree = build_rtree(polygons)

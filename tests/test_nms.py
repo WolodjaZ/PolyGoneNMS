@@ -224,6 +224,36 @@ def test_nms(nms_method, intersection_method, threshold, sigma, expected):
     assert sorted(results) == expected
 
 
+def test_nms_with_different_input_types():
+    input_data = [
+        np.array([0.0, 0.0, 2.0, 0.0, 2.0, 2.0, 0.0, 2.0, 1.0, 0.9]),
+        np.array([1.0, 0.0, 3.0, 0.0, 3.0, 2.0, 1.0, 2.0, 1.0, 0.8]),
+        np.array([4.0, 4.0, 6.0, 4.0, 6.0, 6.0, 4.0, 6.0, 5.0, 0.95]),
+        np.array([10.0, 10.0, 12.0, 10.0, 12.0, 12.0, 10.0, 12.0, 11.0, 0.9]),
+        np.array([11.0, 10.0, 13.0, 10.0, 13.0, 12.0, 11.0, 12.0, 11.0, 0.8]),
+        np.array([14.0, 14.0, 16.0, 14.0, 16.0, 16.0, 14.0, 16.0, 15.0, 0.95]),
+    ]
+
+    results = nms(input_data, None, "Default", "IOU", 0.3, 0.5)
+    assert sorted(results) == [0, 2, 3, 5]
+
+    input_data_polygons = [
+        (Polygon([(0, 0), (2, 0), (2, 2), (0, 2)]), 1, 0.9),
+        (Polygon([(1, 0), (3, 0), (3, 2), (1, 2)]), 1, 0.8),
+        (Polygon([(4, 4), (6, 4), (6, 6), (4, 6)]), 1, 0.95),
+        (Polygon([(10, 10), (12, 10), (12, 12), (10, 12)]), 1, 0.9),
+        (Polygon([(11, 10), (13, 10), (13, 12), (11, 12)]), 1, 0.8),
+        (Polygon([(14, 14), (16, 14), (16, 16), (14, 16)]), 1, 0.95),
+    ]
+
+    results = nms(input_data_polygons, None, "Default", "IOU", 0.3, 0.5)
+    assert sorted(results) == [0, 2, 3, 5]
+
+    input_empty_list = []
+    results = nms(input_empty_list, None, "Default", "IOU", 0.3, 0.5)
+    assert results == []
+
+
 def test_fail_nms():
     dump_data = np.array([[0.0, 0.0, 2.0, 0.0, 2.0, 2.0, 0.0, 2.0, 1.0, 0.9]])
 
