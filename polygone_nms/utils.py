@@ -141,9 +141,11 @@ def build_rtree(polygons: List[Tuple[Polygon, float, float]]) -> rtree.index.Ind
     return rtree_idx
 
 
-def dfs(node: int, visited: List[bool], adj_list: List[List[int]]) -> List[int]:
+def dfs_recursive(
+    node: int, visited: List[bool], adj_list: List[List[int]]
+) -> List[int]:
     """
-    Perform a depth-first search on an adjacency list (graph).
+    Perform a depth-first search on an adjacency list (graph) in a recursive manner.
 
     Examples:
     >>> from polygone_nms.utils import dfs
@@ -174,7 +176,60 @@ def dfs(node: int, visited: List[bool], adj_list: List[List[int]]) -> List[int]:
         if not visited[neighbor]:
             # Extend the connected component with the connected component
             # found by the DFS traversal pf the neighbor
-            connected_component.extend(dfs(neighbor, visited, adj_list))
+            connected_component.extend(dfs_recursive(neighbor, visited, adj_list))
+
+    return connected_component
+
+
+def dfs_iterative(
+    node: int, visited: List[bool], adj_list: List[List[int]]
+) -> List[int]:
+    """
+    Perform a depth-first search on an adjacency list (graph) in a iterative manner.
+
+    Examples:
+    >>> from polygone_nms.utils import dfs
+    >>> adj_list = [[1], [0, 2, 3], [1], [1]]
+    >>> visited = [False] * len(adj_list)
+    >>> dfs(0, visited, adj_list)
+    [0, 1, 2, 3]
+
+    Args:
+        node (int): The starting node for the DFS traversal.
+        visited (List[bool]):
+            list of booleans indicating whether a node has been visited.
+        adj_list (List[List[int]]): The adjacency list representing the graph.
+
+    Returns:
+        List[int]:
+            A list of nodes in the connected component found by the DFS traversal.
+    """
+    # Create a list to store the connected component
+    connected_component = []
+
+    # Create a stack
+    stack = [node]
+
+    # Iterate over the stack
+    while stack:
+        # Pop the last element from the stack
+        curr_node = stack.pop()
+        # If the node has not been visited, mark it as visited and
+        # add it to the connected component
+        if not visited[curr_node]:
+            visited[curr_node] = True
+            connected_component.append(curr_node)
+            # Add the neighbors of the current node to the stack if
+            # they have not been visited
+            stack.extend(
+                reversed(
+                    [
+                        neighbor
+                        for neighbor in adj_list[curr_node]
+                        if not visited[neighbor]
+                    ]
+                )
+            )
 
     return connected_component
 

@@ -7,7 +7,15 @@ import rtree
 from shapely.geometry import Polygon
 
 # Import package modules
-from polygone_nms.utils import build_rtree, create_polygon, dfs, dice, ios, iot, iou
+from polygone_nms.utils import (  # , dfs_recursive
+    build_rtree,
+    create_polygon,
+    dfs_iterative,
+    dice,
+    ios,
+    iot,
+    iou,
+)
 
 INTERSECTION_METHODS = {
     "IOU": iou,
@@ -61,7 +69,9 @@ def cluster_polygons(
         # If the current polygon has not been visited
         if not visited[i]:
             # Perform a depth-first search to find all connected components
-            connected_component = dfs(i, visited, adj_list)
+            # Due to RecursionError: maximum recursion depth exceeded
+            # connected_component = dfs_recursive(i, visited, adj_list)
+            connected_component = dfs_iterative(i, visited, adj_list)
             # # Create a cluster from the connected component
             # cluster = [polygons[j] for j in connected_component]
             # # Append the cluster to the list of clusters
@@ -305,12 +315,17 @@ def nms(
             initialize_ray = True
             ray.init()  # Initialize Ray
 
+        # Scatter the polygon clusters to the Ray cluster
+        polygon_futures = [
+            ray.put(polygon_cluster) for polygon_cluster in polygon_clusters
+        ]
+
         # Apply NMS to each cluster
         nms_polygons_futures = [
             ray.remote(apply_distributed_polygon_nms).remote(
-                polygon_cluster, nms_method, intersection_func, threshold, sigma
+                polygon_future, nms_method, intersection_func, threshold, sigma
             )
-            for polygon_cluster in polygon_clusters
+            for polygon_future in polygon_futures
         ]
         nms_polygons = ray.get(nms_polygons_futures)
 
@@ -328,6 +343,9 @@ def nms(
         else:
             initialize_dask = False
 
+        # Scatter the polygon clusters to the Dask cluster
+        polygon_futures = client.scatter(polygon_clusters)
+
         # Apply NMS to each cluster and gather the results
         nms_polygon_futures = client.map(
             functools.partial(
@@ -337,7 +355,7 @@ def nms(
                 threshold=threshold,
                 sigma=sigma,
             ),
-            polygon_clusters,
+            polygon_futures,
         )
         nms_polygons = client.gather(nms_polygon_futures)
         # Shutdown Dask if it was initialized in this function

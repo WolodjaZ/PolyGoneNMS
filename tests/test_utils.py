@@ -7,7 +7,8 @@ from polygone_nms.utils import (
     bbox_to_polygon_array,
     build_rtree,
     create_polygon,
-    dfs,
+    dfs_iterative,
+    dfs_recursive,
     dice,
     ios,
     iot,
@@ -78,7 +79,7 @@ def test_build_rtree():
             assert not polygons[i][0].intersects(bbox_to_polygon(query_bounds))
 
 
-def test_dfs():
+def test_dfs_recursive():
     # Test graph structure:
     # 0 -- 1 -- 2
     #      |
@@ -87,7 +88,7 @@ def test_dfs():
 
     visited = [False] * len(adj_list)
     starting_node = 0
-    connected_component = dfs(starting_node, visited, adj_list)
+    connected_component = dfs_recursive(starting_node, visited, adj_list)
     assert connected_component == [0, 1, 2, 3]
 
     # Test disconnected graph structure:
@@ -96,11 +97,37 @@ def test_dfs():
 
     visited = [False] * len(adj_list)
     starting_node = 0
-    connected_component = dfs(starting_node, visited, adj_list)
+    connected_component = dfs_recursive(starting_node, visited, adj_list)
     assert connected_component == [0, 1]
 
     starting_node = 2
-    connected_component = dfs(starting_node, visited, adj_list)
+    connected_component = dfs_recursive(starting_node, visited, adj_list)
+    assert connected_component == [2, 3]
+
+
+def test_dfs_iterative():
+    # Test graph structure:
+    # 0 -- 1 -- 2
+    #      |
+    #      3
+    adj_list = [[1], [0, 2, 3], [1], [1]]  # Node 0  # Node 1  # Node 2  # Node 3
+
+    visited = [False] * len(adj_list)
+    starting_node = 0
+    connected_component = dfs_iterative(starting_node, visited, adj_list)
+    assert connected_component == [0, 1, 2, 3]
+
+    # Test disconnected graph structure:
+    # 0 -- 1    2 -- 3
+    adj_list = [[1], [0], [3], [2]]  # Node 0  # Node 1  # Node 2  # Node 3
+
+    visited = [False] * len(adj_list)
+    starting_node = 0
+    connected_component = dfs_iterative(starting_node, visited, adj_list)
+    assert connected_component == [0, 1]
+
+    starting_node = 2
+    connected_component = dfs_iterative(starting_node, visited, adj_list)
     assert connected_component == [2, 3]
 
 

@@ -2,7 +2,12 @@
 
 PolyGoneNMS is a library for efficient and distributed polygon Non-Maximum Suppression (NMS) in Python. It supports various NMS methods, intersection calculations, and can handle large numbers of polygons in 1D, 2D, and 3D spaces. PolyGoneNMS uses R-tree data structures and shapely polygon objects for optimal performance.
 
+## Benchmark Plots
+
+![Benchmark results](assets/benchmark_results.png)
+
 ## Features
+
 - Efficient polygon NMS for large numbers of polygons.
 - Support for various NMS methods: Default, Soft, and Class Agnostic.
 - Support for different intersection methods: IOU, IOS, and Dice.
