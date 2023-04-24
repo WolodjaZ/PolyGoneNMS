@@ -1,5 +1,7 @@
 import os
 
+from polygone_nms.nms import nms
+
 
 def read_version():
     version_file_path = os.path.join(os.path.dirname(__file__), "..", "VERSION")
@@ -8,3 +10,5 @@ def read_version():
 
 
 __version__ = read_version()
+
+__all__ = ["nms"]
