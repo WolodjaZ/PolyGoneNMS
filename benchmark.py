@@ -36,7 +36,12 @@ def generate_polygons(num_polygons: int, avg_overlap: float, max_points: int = 6
     return polygons
 
 
-def benchmark_nms(nms_methods: List[str], save_dir: str = "./", num_workers: int = 4):
+def benchmark_nms(
+    nms_methods: List[str],
+    save_dir: str = "./",
+    num_workers: int = 4,
+    memory_available: float = 1.0,
+):
     num_polygons_list = [100, 500, 1000, 2000, 4000, 10000]  # , 40000]
     avg_overlap_list = [0.25, 0.5, 0.75]
 
@@ -120,7 +125,7 @@ def benchmark_nms(nms_methods: List[str], save_dir: str = "./", num_workers: int
     # Plots
     mpl.rcParams["lines.linewidth"] = 3
     plt.style.use("dark_background")
-    fig, axis = plt.subplots(1, 2, figsize=(15, 20))
+    fig, axis = plt.subplots(1, 2, figsize=(20, 10))
 
     # Plot time results
     for key, values in time_results.items():
@@ -153,8 +158,11 @@ def benchmark_nms(nms_methods: List[str], save_dir: str = "./", num_workers: int
     axis[1].set_title("Memory Benchmark")
 
     # Save plots
-    plt.title("Polygon NMS Benchmark Results")
     plt.tight_layout()
+    plt.title(
+        f"Polygon NMS Benchmark Results\n "
+        f"number of workers: {num_workers} and available memory: {memory_available} GB"
+    )
     save_path = os.path.join(save_dir, "benchmark_results.png")
     print(f"Saving plots to {save_path} ...")
     plt.savefig(save_path)
@@ -164,7 +172,7 @@ if __name__ == "__main__":
     # Parse arguments, get the save directory
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--save_dir", type=str, default="./", help="Directory to save the results"
+        "--save_dir", type=str, default="./assets", help="Directory to save the results"
     )
     args = parser.parse_args()
 
@@ -181,5 +189,8 @@ if __name__ == "__main__":
         f"Benchmarking NMS methods with distributed on {num_cpus} number of workers..."
     )
     benchmark_nms(
-        nms_methods=["Not", "Dask", "Ray"], save_dir=args.save_dir, num_workers=num_cpus
+        nms_methods=["Not", "Dask", "Ray"],
+        save_dir=args.save_dir,
+        num_workers=num_cpus,
+        memory_available=round(avail_mem, 2),
     )
