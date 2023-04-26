@@ -16,6 +16,8 @@ def main():
     if "assets/benchmark_results.png" in output:
         benchmark_changed = True
 
+    if version_changed:
+        print("REMEMBER: Add changes to CHANGELOG.md")
     if version_changed and not benchmark_changed:
         print(
             "ERROR: The VERSION file has changed, "

@@ -63,11 +63,19 @@ jobs:
           - name: Checkout code 📂
             uses: actions/checkout@v3
 
+          - name: Get changed files 🔄
+            id: changed_files
+            uses: tj-actions/changed-files@v35
+
           - name: Check if benchmark_results.png has changed 🔍
             id: check_benchmark
             run: |
-              git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^assets/benchmark_results.png$' || true
-              echo "::set-output name=changed::$?"
+              echo "::set-output name=changed::1"
+              for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
+                if [ $file = "assets/benchmark_results.png" ]; then
+                  echo "::set-output name=changed::0"
+                fi
+              done
 
           - name: Post comment with benchmark results 📝
             if: steps.check_benchmark.outputs.changed == '0'
@@ -122,11 +130,19 @@ jobs:
       - name: Checkout code 📂
         uses: actions/checkout@v3
 
+      - name: Get changed files 🔄
+        id: changed_files
+        uses: tj-actions/changed-files@v35
+
       - name: Check if VERSION file has changed 🔍
-        id: check_version
+        id: check_benchmark
         run: |
-          git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^VERSION$' || true
-          echo "::set-output name=changed::$?"
+          echo "::set-output name=changed::1"
+          for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
+            if [ $file = "VERSION" ]; then
+              echo "::set-output name=changed::0"
+            fi
+          done
 
       - name: Get version from VERSION file 💻
         id: get_version
@@ -141,4 +157,4 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
