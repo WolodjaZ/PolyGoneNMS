@@ -49,5 +49,6 @@ repos:
         - id: check-version-changed
           name: Check VERSION changed
           entry: python scripts/check_version.py
-          language: script
+          language: python
           files: VERSION
+          pass_filenames: false
