@@ -66,8 +66,8 @@ jobs:
           - name: Check if benchmark_results.png has changed 🔍
             id: check_benchmark
             run: |
-              git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^assets/benchmark_results.png$' || true
-              echo "::set-output name=changed::$?"
+              git fetch origin main
+              git merge-base origin/main HEAD
 
           - name: Post comment with benchmark results 📝
             if: steps.check_benchmark.outputs.changed == '0'
@@ -125,8 +125,14 @@ jobs:
       - name: Check if VERSION file has changed 🔍
         id: check_version
         run: |
-          git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^VERSION$' || true
-          echo "::set-output name=changed::$?"
+          git fetch origin main
+          merge_base=$(git merge-base origin/main HEAD)
+          if git diff --name-only $merge_base HEAD | grep -q '^VERSION$'; then
+            echo "::set-output name=changed::0"
+          else
+            echo "::set-output name=changed::1"
+          fi
+          exit 0
 
       - name: Get version from VERSION file 💻
         id: get_version
@@ -141,4 +147,4 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
