@@ -43,3 +43,12 @@ repos:
         -   id: mypy
             args: [polygone_nms]
             pass_filenames: false
+
+-   repo: local
+    hooks:
+        - id: check-version-changed
+          name: Check VERSION changed
+          entry: python scripts/check_version.py
+          language: python
+          files: VERSION
+          pass_filenames: false

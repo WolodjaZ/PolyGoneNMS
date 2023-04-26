@@ -26,29 +26,63 @@ jobs:
         steps:
             - name: Checkout code 📂
               uses: actions/checkout@v3
+
             - name: Set up Python 🐍
               uses: actions/setup-python@v4
               with:
                 python-version: ${{ matrix.python-version }}
                 cache: 'pip' # caching pip dependencies
+
             - name: Install dependencies 🛠️
               run: |
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
                 pip install -r requirements-dev.txt
+
             - name: Clear code 🧹
               uses: pre-commit/action@v3.0.0
               with:
                 extra_args: --all-files
+
             - name: Run tests 🧪
               run: |
                 pytest --cov=polygone_nms --cov-config=setup.cfg --cov-report=xml tests
+
             - name: Upload coverage report to Codecov 📈
               if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.8' }}
               uses: codecov/codecov-action@v2
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
                 file: ./coverage.xml
+
+    comment_benchmark:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        needs: test
+        steps:
+          - name: Checkout code 📂
+            uses: actions/checkout@v3
+
+          - name: Check if benchmark_results.png has changed 🔍
+            id: check_benchmark
+            run: |
+              git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^assets/benchmark_results.png$' || true
+              echo "::set-output name=changed::$?"
+
+          - name: Post comment with benchmark results 📝
+            if: steps.check_benchmark.outputs.changed == '0'
+            uses: peter-evans/create-or-update-comment@v3
+            with:
+              token: ${{ secrets.GITHUB_TOKEN }}
+              issue-number: ${{ github.event.pull_request.number }}
+              body: |
+                ## Benchmark Results Comparison
+
+                ### Previous Benchmark Results (main branch)
+                ![Previous Benchmark results](https://raw.githubusercontent.com/${{ github.repository }}/main/assets/benchmark_results.png)
+
+                ### Current Benchmark Results (pull request)
+                ![Current Benchmark results](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.event.pull_request.head.sha }}/assets/benchmark_results.png)
 
     analyze:
         name: Analyze
@@ -66,13 +100,45 @@ jobs:
         steps:
             - name: Checkout code 📂
               uses: actions/checkout@v3
+
             - name: Initialize CodeQL 🧬
               uses: github/codeql-action/init@v2
               with:
                 languages: ${{ matrix.language }}
+
             - name: Autobuild 🤖
               uses: github/codeql-action/autobuild@v2
+
             - name: Perform CodeQL Analysis 🔍
               uses: github/codeql-action/analyze@v2
               with:
                 category: "/language:${{matrix.language}}"
+
+    release:
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      needs: test
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code 📂
+        uses: actions/checkout@v3
+
+      - name: Check if VERSION file has changed 🔍
+        id: check_version
+        run: |
+          git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^VERSION$' || true
+          echo "::set-output name=changed::$?"
+
+      - name: Get version from VERSION file 💻
+        id: get_version
+        run: |
+          echo "::set-output name=version::$(cat VERSION)"
+
+      - name: Create GitHub Release 🚀
+        if: steps.check_version.outputs.changed == '0'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
