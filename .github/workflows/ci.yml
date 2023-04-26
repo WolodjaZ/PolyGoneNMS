@@ -66,7 +66,7 @@ jobs:
           - name: Check if benchmark_results.png has changed 🔍
             id: check_benchmark
             run: |
-              git diff --name-only HEAD~1 | grep '^assets/benchmark_results.png$'
+              git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^assets/benchmark_results.png$' || true
               echo "::set-output name=changed::$?"
 
           - name: Post comment with benchmark results 📝
@@ -83,7 +83,6 @@ jobs:
 
                 ### Current Benchmark Results (pull request)
                 ![Current Benchmark results](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.event.pull_request.head.sha }}/assets/benchmark_results.png)
-              edit-mode: inplace
 
     analyze:
         name: Analyze
@@ -126,7 +125,7 @@ jobs:
       - name: Check if VERSION file has changed 🔍
         id: check_version
         run: |
-          git diff --name-only HEAD~1 | grep '^VERSION$'
+          git diff --name-only $(git rev-parse ${{ github.ref }} 2>/dev/null || echo "") | grep '^VERSION$' || true
           echo "::set-output name=changed::$?"
 
       - name: Get version from VERSION file 💻

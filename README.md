@@ -45,7 +45,9 @@ For a more detailed guide on using PolyGoneNMS, please see the [Quickstart](http
 
 ## Documentation
 
-Detailed documentation is available at TODO.
+Detailed documentation is available at:
+[![Docs](https://img.shields.io/badge/Docs-mkdocs-blue?style=flat)](https://wolodjaz.github.io/PolyGoneNMS)
+
 
 ## Contributing
 
