@@ -73,6 +73,7 @@ jobs:
               echo "::set-output name=changed::1"
               for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
                 if [ $file = "assets/benchmark_results.png" ]; then
+                  echo "$file changed"
                   echo "::set-output name=changed::0"
                 fi
               done
@@ -140,6 +141,7 @@ jobs:
           echo "::set-output name=changed::1"
           for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
             if [ $file = "VERSION" ]; then
+              echo "$file changed"
               echo "::set-output name=changed::0"
             fi
           done
