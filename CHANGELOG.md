@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2]
+
+### Added
+
+- CI/CD adjustments for the project in github actions.
+- docs references repair.
+- docs doc-strings examples corrected
+- docs creation github action repair.
+
 ## [0.1.1]
 
 ### Added

@@ -160,7 +160,7 @@ def benchmark_nms(
     # Save plots
     plt.tight_layout()
     plt.title(
-        f"Polygon NMS Benchmark Results\n "
+        f"Polygon NMS Benchmark Results\n"
         f"number of workers: {num_workers} and available memory: {memory_available} GB"
     )
     save_path = os.path.join(save_dir, "benchmark_results.png")

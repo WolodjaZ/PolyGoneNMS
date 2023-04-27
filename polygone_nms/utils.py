@@ -37,31 +37,31 @@ def create_polygon(coords: np.ndarray, none_value: float = -1.0) -> Polygon:
     If any of the coordinates is of `none_value`, it is ignored.
 
     Examples:
-    >>> import numpy as np
-    >>> from polygone_nms.utils import create_polygon
-    >>> coords = np.array([0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0])
-    >>> poly = create_polygon(coords)
-    >>> poly.is_valid
-    True
-    >>> poly.area
-    1.0
-    >>> coords = np.array([2.0, 0.0, 3.0, 0.0, 3.0, 1.0, 2.0, 1.0, 2.0, 0.0])
-    >>> poly = create_polygon(coords)
-    >>> poly.is_valid
-    True
-    >>> poly.area
-    1.0
-    >>> coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0])
-    >>> poly = create_polygon(coords)
-    >>> poly.is_valid
-    True
-    >>> poly.area
-    0.5
-    >>> coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0, 1.0, 2.0])
-    >>> poly = create_polygon(coords)
-    Traceback (most recent call last):
-        ...
-    ValueError: The number of coordinates must be even.
+        >>> import numpy as np
+        >>> from polygone_nms.utils import create_polygon
+        >>> coords = np.array([0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0])
+        >>> poly = create_polygon(coords)
+        >>> poly.is_valid
+        True
+        >>> poly.area
+        1.0
+        >>> coords = np.array([2.0, 0.0, 3.0, 0.0, 3.0, 1.0, 2.0, 1.0, 2.0, 0.0])
+        >>> poly = create_polygon(coords)
+        >>> poly.is_valid
+        True
+        >>> poly.area
+        1.0
+        >>> coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0])
+        >>> poly = create_polygon(coords)
+        >>> poly.is_valid
+        True
+        >>> poly.area
+        0.5
+        >>> coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0, 1.0, 2.0])
+        >>> poly = create_polygon(coords)
+        Traceback (most recent call last):
+            ...
+        ValueError: The number of coordinates must be even.
 
     Raises:
         ValueError: If the number of coordinates is odd.
@@ -102,18 +102,18 @@ def build_rtree(polygons: List[Tuple[Polygon, float, float]]) -> rtree.index.Ind
     https://pypi.org/project/rtree/
 
     Examples:
-    >>> from shapely.geometry import Polygon
-    >>> from polygone_nms.utils import build_rtree
-    >>> p1 = (Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 0, 0.9)
-    >>> p2 = (Polygon([(2, 0), (3, 0), (3, 1), (2, 1)]), 1, 0.8)
-    >>> p3 = (Polygon([(1, 2), (2, 2), (2, 3), (1, 3)]), 1, 0.7)
-    >>> rtree_index = build_rtree([p1, p2, p3])
-    >>> query_bounds = (0.5, 0.5, 1.5, 1.5)
-    >>> list(rtree_index.intersection(query_bounds))
-    [0]
-    >>> query_bounds = (1.5, 1.5, 2.5, 2.5)
-    >>> list(rtree_index.intersection(query_bounds))
-    [2]
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import build_rtree
+        >>> p1 = (Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 0, 0.9)
+        >>> p2 = (Polygon([(2, 0), (3, 0), (3, 1), (2, 1)]), 1, 0.8)
+        >>> p3 = (Polygon([(1, 2), (2, 2), (2, 3), (1, 3)]), 1, 0.7)
+        >>> rtree_index = build_rtree([p1, p2, p3])
+        >>> query_bounds = (0.5, 0.5, 1.5, 1.5)
+        >>> list(rtree_index.intersection(query_bounds))
+        [0]
+        >>> query_bounds = (1.5, 1.5, 2.5, 2.5)
+        >>> list(rtree_index.intersection(query_bounds))
+        [2]
 
     Args:
         polygons (List[Tuple[Polygon, float, float]]):
@@ -148,11 +148,11 @@ def dfs_recursive(
     Perform a depth-first search on an adjacency list (graph) in a recursive manner.
 
     Examples:
-    >>> from polygone_nms.utils import dfs
-    >>> adj_list = [[1], [0, 2, 3], [1], [1]]
-    >>> visited = [False] * len(adj_list)
-    >>> dfs(0, visited, adj_list)
-    [0, 1, 2, 3]
+        >>> from polygone_nms.utils import dfs
+        >>> adj_list = [[1], [0, 2, 3], [1], [1]]
+        >>> visited = [False] * len(adj_list)
+        >>> dfs(0, visited, adj_list)
+        [0, 1, 2, 3]
 
     Args:
         node (int): The starting node for the DFS traversal.
@@ -188,11 +188,11 @@ def dfs_iterative(
     Perform a depth-first search on an adjacency list (graph) in a iterative manner.
 
     Examples:
-    >>> from polygone_nms.utils import dfs
-    >>> adj_list = [[1], [0, 2, 3], [1], [1]]
-    >>> visited = [False] * len(adj_list)
-    >>> dfs(0, visited, adj_list)
-    [0, 1, 2, 3]
+        >>> from polygone_nms.utils import dfs
+        >>> adj_list = [[1], [0, 2, 3], [1], [1]]
+        >>> visited = [False] * len(adj_list)
+        >>> dfs(0, visited, adj_list)
+        [0, 1, 2, 3]
 
     Args:
         node (int): The starting node for the DFS traversal.
@@ -254,12 +254,12 @@ def iou(poly1: Polygon, poly2: Polygon) -> float:
         a higher IoU threshold indicates a stricter evaluation criterion.
 
     Examples:
-    >>> from shapely.geometry import Polygon
-    >>> from polygone_nms.utils import iou
-    >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
-    >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
-    >>> iou(poly1, poly2)
-    0.3333333333333333
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import iou
+        >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+        >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
+        >>> iou(poly1, poly2)
+        0.3333333333333333
 
     Args:
         poly1 (Polygon):
@@ -299,12 +299,12 @@ def ios(poly1: Polygon, poly2: Polygon) -> float:
         of detections, especially when dealing with objects of varying sizes.
 
     Examples:
-    >>> from shapely.geometry import Polygon
-    >>> from polygone_nms.utils import ios
-    >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
-    >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
-    >>> ios(poly1, poly2)
-    0.5
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import ios
+        >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+        >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
+        >>> ios(poly1, poly2)
+        0.5
 
     Args:
         poly1 (Polygon):
@@ -343,12 +343,12 @@ def dice(poly1: Polygon, poly2: Polygon) -> float:
         in cases where the regions of interest have varying sizes and shapes.
 
     Examples:
-    >>> from shapely.geometry import Polygon
-    >>> from polygone_nms.utils import dice
-    >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
-    >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
-    >>> dice(poly1, poly2)
-    0.5
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import dice
+        >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+        >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
+        >>> dice(poly1, poly2)
+        0.5
 
     Args:
         poly1 (Polygon):
@@ -387,12 +387,12 @@ def iot(target: Polygon, compared: Polygon) -> float:
     while a score of 0 means that there's no overlap at all.
 
     Examples:
-    >>> from shapely.geometry import Polygon
-    >>> from polygone_nms.utils import iot
-    >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
-    >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
-    >>> iot(poly1, poly2)
-    0.5
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import iot
+        >>> poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+        >>> poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])
+        >>> iot(poly1, poly2)
+        0.5
 
     Args:
         target (Polygon):

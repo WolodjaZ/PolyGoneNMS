@@ -35,6 +35,22 @@ def cluster_polygons(
     Cluster polygons into non-overlapping subregions with R-Tree.
     Used for distributed computing.
 
+    Examples:
+        >>> from shapely.geometry import Polygon
+        >>> from polygone_nms.utils import build_rtree, cluster_polygons
+        >>> polygons = [
+        ...     (Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 0, 0.9),
+        ...     (Polygon([(2, 0), (3, 0), (3, 1), (2, 1)]), 0, 0.9),
+        ...     (Polygon([(4, 0), (5, 0), (5, 1), (4, 1)]), 0, 0.9),
+        ...     (Polygon([(0, 0.5), (1, 0.5), (1, 2), (0, 2)]), 0, 0.9),
+        ...     (Polygon([(2, 1), (3, 1), (3, 3), (2, 3)]), 0, 0.9),
+        ... ]
+        >>> rtree = build_rtree(polygons)
+        >>> clustered_polygons = cluster_polygons(polygons, rtree)
+        >>> assert len(clustered_polygons) == 3
+        >>> assert sorted(clustered_polygons[0]) == [0, 3]
+        >>> assert sorted(clustered_polygons[1]) == [1, 4]
+
     Args:
         polygons (List[Tuple[Polygon, float, float]]): List of polygons,
             where each polygon is a tuple of the polygon, the class label,
@@ -217,6 +233,24 @@ def nms(
     """
     Apply Non-Maximum Suppression (NMS) to a set of polygons.
     Method works with distributed computing for efficient processing and clustering.
+
+    Examples:
+        >>> import numpy as np
+        >>> from polygone.nms import nms
+        >>> input_data = np.array(
+        ... [
+        ...     [0.0, 0.0, 2.0, 0.0, 2.0, 2.0, 0.0, 2.0, 1.0, 0.9],
+        ...     [1.0, 0.0, 3.0, 0.0, 3.0, 2.0, 1.0, 2.0, 1.0, 0.8],
+        ...     [4.0, 4.0, 6.0, 4.0, 6.0, 6.0, 4.0, 6.0, 5.0, 0.95],
+        ...     [10.0, 10.0, 12.0, 10.0, 12.0, 12.0, 10.0, 12.0, 11.0, 0.9],
+        ...     [11.0, 10.0, 13.0, 10.0, 13.0, 12.0, 11.0, 12.0, 11.0, 0.8],
+        ...     [14.0, 14.0, 16.0, 14.0, 16.0, 16.0, 14.0, 16.0, 15.0, 0.95],
+        ... ])
+        >>> results = nms(input_data, None, "Default", "IOU", 0.3, 0.5)
+        >>> assert sorted(results) == [0, 2, 3, 5]
+
+    results = nms(input_data, None, nms_method, intersection_method, threshold, sigma)
+    assert sorted(results) == expected
 
     Args:
         input_data (Union[np.ndarray, Tuple[Polygon, float, float]]):
