@@ -27,7 +27,7 @@ setup(
     author="Vladimir Zaigrajew",
     author_email="vladimirzaigrajew@gmail.com",
     url="https://github.com/WolodjaZ/polygone-nms",
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests"]),
     install_requires=read_requirements("requirements.txt"),
     extras_require={
         "dev": read_requirements("requirements-dev.txt"),
