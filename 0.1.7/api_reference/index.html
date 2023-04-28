@@ -1,0 +1,3537 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../quickstart/">
+      
+      
+        <link rel="next" href="../changelog/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+    
+    
+      
+        <title>API Reference 📖 - PolyGoneNMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PolyGoneNMS" class="md-header__button md-logo" aria-label="PolyGoneNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PolyGoneNMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference 📖
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PolyGoneNMS" class="md-nav__button md-logo" aria-label="PolyGoneNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    PolyGoneNMS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home 🏠
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quickstart 🚀
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API Reference 📖
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API Reference 📖
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polygone_nms.nms" class="md-nav__link">
+    nms
+  </a>
+  
+    <nav class="md-nav" aria-label="nms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.apply_distributed_polygon_nms" class="md-nav__link">
+    apply_distributed_polygon_nms()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.apply_polygon_nms" class="md-nav__link">
+    apply_polygon_nms()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.cluster_polygons" class="md-nav__link">
+    cluster_polygons()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.nms" class="md-nav__link">
+    nms()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polygone_nms.utils" class="md-nav__link">
+    utils
+  </a>
+  
+    <nav class="md-nav" aria-label="utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.bbox_to_polygon_array" class="md-nav__link">
+    bbox_to_polygon_array()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.build_rtree" class="md-nav__link">
+    build_rtree()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.create_polygon" class="md-nav__link">
+    create_polygon()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dfs_iterative" class="md-nav__link">
+    dfs_iterative()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dfs_recursive" class="md-nav__link">
+    dfs_recursive()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dice" class="md-nav__link">
+    dice()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.ios" class="md-nav__link">
+    ios()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.iot" class="md-nav__link">
+    iot()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.iou" class="md-nav__link">
+    iou()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog 📝
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polygone_nms.nms" class="md-nav__link">
+    nms
+  </a>
+  
+    <nav class="md-nav" aria-label="nms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.apply_distributed_polygon_nms" class="md-nav__link">
+    apply_distributed_polygon_nms()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.apply_polygon_nms" class="md-nav__link">
+    apply_polygon_nms()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.cluster_polygons" class="md-nav__link">
+    cluster_polygons()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.nms.nms" class="md-nav__link">
+    nms()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polygone_nms.utils" class="md-nav__link">
+    utils
+  </a>
+  
+    <nav class="md-nav" aria-label="utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.bbox_to_polygon_array" class="md-nav__link">
+    bbox_to_polygon_array()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.build_rtree" class="md-nav__link">
+    build_rtree()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.create_polygon" class="md-nav__link">
+    create_polygon()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dfs_iterative" class="md-nav__link">
+    dfs_iterative()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dfs_recursive" class="md-nav__link">
+    dfs_recursive()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.dice" class="md-nav__link">
+    dice()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.ios" class="md-nav__link">
+    ios()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.iot" class="md-nav__link">
+    iot()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygone_nms.utils.iou" class="md-nav__link">
+    iou()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="api-reference">API Reference</h1>
+<p>This page provides a comprehensive reference of the functions available in the PolyGoneNMS library.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="polygone_nms.nms" class="doc doc-heading">
+          <code>polygone_nms.nms</code>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.nms.apply_distributed_polygon_nms" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">apply_distributed_polygon_nms</span><span class="p">(</span><span class="n">polygons</span><span class="p">,</span> <span class="n">nms_method</span><span class="p">,</span> <span class="n">intersection_method</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Distributed version of <code>apply_polygon_nms</code>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>polygons</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="shapely.geometry.Polygon">Polygon</span>, float, float]]</code>
+          </td>
+          <td><p>List of polygons, where each polygon is a tuple of the polygon
+represented by shapely.geometry.Polygon object, the class label,
+and the confidence score.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>nms_method</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The NMS method to use, one of
+("Default", "Soft", "Class Agnostic").</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>intersection_method</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>The method to compute intersections.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>threshold</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The threshold for the NMS method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>sigma</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The sigma for the Soft NMS method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[int]</code>
+          </td>
+          <td><p>List[int]: A list of kept polygon indices.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/nms.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply_distributed_polygon_nms</span><span class="p">(</span>
+    <span class="n">polygons</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Polygon</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+    <span class="n">nms_method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">intersection_method</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Distributed version of `apply_polygon_nms`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        polygons (List[Tuple[Polygon, float, float]]):</span>
+<span class="sd">            List of polygons, where each polygon is a tuple of the polygon</span>
+<span class="sd">            represented by shapely.geometry.Polygon object, the class label,</span>
+<span class="sd">            and the confidence score.</span>
+<span class="sd">        nms_method (str): The NMS method to use, one of</span>
+<span class="sd">            (&quot;Default&quot;, &quot;Soft&quot;, &quot;Class Agnostic&quot;).</span>
+<span class="sd">        intersection_method (Callable): The method to compute intersections.</span>
+<span class="sd">        threshold (float, optional): The threshold for the NMS method. Defaults to 0.5.</span>
+<span class="sd">        sigma (float, optional): The sigma for the Soft NMS method. Defaults to 0.5.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]: A list of kept polygon indices.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">apply_polygon_nms</span><span class="p">(</span>
+        <span class="n">polygons</span><span class="p">,</span> <span class="n">nms_method</span><span class="p">,</span> <span class="n">intersection_method</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sigma</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.nms.apply_polygon_nms" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">apply_polygon_nms</span><span class="p">(</span><span class="n">polygons</span><span class="p">,</span> <span class="n">nms_method</span><span class="p">,</span> <span class="n">intersection_method</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Apply Non-Maximum Suppression (NMS) to a list of predicted polygons.</p>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td><p>If the NMS method is invalid.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>polygons</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="shapely.geometry.Polygon">Polygon</span>, float, float]]</code>
+          </td>
+          <td><p>List of polygons, where each polygon is a tuple of the polygon
+represented by shapely.geometry.Polygon object, the class label,
+and the confidence score.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>nms_method</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The NMS method to use, one of
+("Default", "Soft", "Class Agnostic").</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>intersection_method</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>The method to compute intersections.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>threshold</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The threshold for the NMS method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>sigma</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The sigma for the Soft NMS method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[int]</code>
+          </td>
+          <td><p>List[int]: A list of kept polygon indices.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/nms.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply_polygon_nms</span><span class="p">(</span>
+    <span class="n">polygons</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Polygon</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+    <span class="n">nms_method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">intersection_method</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply Non-Maximum Suppression (NMS) to a list of predicted polygons.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the NMS method is invalid.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        polygons (List[Tuple[Polygon, float, float]]):</span>
+<span class="sd">            List of polygons, where each polygon is a tuple of the polygon</span>
+<span class="sd">            represented by shapely.geometry.Polygon object, the class label,</span>
+<span class="sd">            and the confidence score.</span>
+<span class="sd">        nms_method (str): The NMS method to use, one of</span>
+<span class="sd">            (&quot;Default&quot;, &quot;Soft&quot;, &quot;Class Agnostic&quot;).</span>
+<span class="sd">        intersection_method (Callable): The method to compute intersections.</span>
+<span class="sd">        threshold (float, optional): The threshold for the NMS method. Defaults to 0.5.</span>
+<span class="sd">        sigma (float, optional): The sigma for the Soft NMS method. Defaults to 0.5.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]: A list of kept polygon indices.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># List of kept polygons</span>
+    <span class="n">kept_polygons</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Sort polygons by confidence score</span>
+    <span class="n">confidences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">poly</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">poly</span> <span class="ow">in</span> <span class="n">polygons</span><span class="p">])</span>
+    <span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">confidences</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Iterate over all sorted polygons by confidence score</span>
+    <span class="k">while</span> <span class="n">sorted_indices</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Get the index of the current polygon and the respective polygon and label</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">sorted_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">current_polygon</span> <span class="o">=</span> <span class="n">polygons</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">current_class</span> <span class="o">=</span> <span class="n">polygons</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Add the current polygon to the NMS kept polygons list</span>
+        <span class="n">kept_polygons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the intersection between the current polygon and</span>
+        <span class="c1"># all remaining polygons</span>
+        <span class="n">intersections</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">intersection_method</span><span class="p">(</span><span class="n">current_polygon</span><span class="p">,</span> <span class="n">polygons</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="p">]</span>
+
+        <span class="c1"># If the NMS method is &quot;Default&quot;, &quot;Soft&quot; or &quot;Class Agnostic&quot;</span>
+        <span class="k">if</span> <span class="n">nms_method</span> <span class="o">==</span> <span class="s2">&quot;Default&quot;</span><span class="p">:</span>
+            <span class="c1"># Remove all remaining polygons that have an intersection with</span>
+            <span class="c1"># the current polygon greater than the threshold</span>
+            <span class="n">remaining_indices</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">idx</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">intersection</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sorted_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">intersections</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">polygons</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">current_class</span> <span class="ow">or</span> <span class="n">intersection</span> <span class="o">&lt;=</span> <span class="n">threshold</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="n">nms_method</span> <span class="o">==</span> <span class="s2">&quot;Soft&quot;</span><span class="p">:</span>
+            <span class="c1"># Update the confidence scores of the remaining polygons</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">intersection</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sorted_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">intersections</span><span class="p">):</span>
+                <span class="c1"># Calculate the weight for the current polygon equal to</span>
+                <span class="c1"># e^(-intersection^2 / sigma)</span>
+                <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">intersection</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span>
+                <span class="n">confidences</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*=</span> <span class="n">weight</span>
+
+            <span class="c1"># Discard polygons with confidence below the threshold</span>
+            <span class="n">remaining_indices</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">confidences</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="n">nms_method</span> <span class="o">==</span> <span class="s2">&quot;Class Agnostic&quot;</span><span class="p">:</span>
+            <span class="c1"># Remove all remaining polygons that have an intersection with</span>
+            <span class="c1"># the current polygon greater than the threshold and</span>
+            <span class="c1"># have the same class label</span>
+            <span class="n">remaining_indices</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">idx</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">intersection</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sorted_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">intersections</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">intersection</span> <span class="o">&lt;=</span> <span class="n">threshold</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Invalid NMS method: </span><span class="si">{</span><span class="n">nms_method</span><span class="si">}</span><span class="s2">. &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Allowed methods are: </span><span class="si">{</span><span class="n">VALID_NMS_METHODS</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Update the list of remaining polygon indices</span>
+        <span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">remaining_indices</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">kept_polygons</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.nms.cluster_polygons" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">cluster_polygons</span><span class="p">(</span><span class="n">polygons</span><span class="p">,</span> <span class="n">rtree_index</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Cluster polygons into non-overlapping subregions with R-Tree.
+Used for distributed computing.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">build_rtree</span><span class="p">,</span> <span class="n">cluster_polygons</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polygons</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rtree</span> <span class="o">=</span> <span class="n">build_rtree</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clustered_polygons</span> <span class="o">=</span> <span class="n">cluster_polygons</span><span class="p">(</span><span class="n">polygons</span><span class="p">,</span> <span class="n">rtree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">clustered_polygons</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">clustered_polygons</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">clustered_polygons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>polygons</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="shapely.geometry.Polygon">Polygon</span>, float, float]]</code>
+          </td>
+          <td><p>List of polygons,
+where each polygon is a tuple of the polygon, the class label,
+and the confidence score.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>rtree_index</code></td>
+          <td>
+                <code>rtree.<span title="rtree.index">index</span>.<span title="rtree.index.Index">Index</span></code>
+          </td>
+          <td><p>R-Tree index of the polygons.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="shapely.geometry.Polygon">Polygon</span>]]</code>
+          </td>
+          <td><p>List[List[Polygon]]:
+A list of clusters,
+where each cluster is a list of non-overlapping polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/nms.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cluster_polygons</span><span class="p">(</span>
+    <span class="n">polygons</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Polygon</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span> <span class="n">rtree_index</span><span class="p">:</span> <span class="n">rtree</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">Index</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Polygon</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cluster polygons into non-overlapping subregions with R-Tree.</span>
+<span class="sd">    Used for distributed computing.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import build_rtree, cluster_polygons</span>
+<span class="sd">        &gt;&gt;&gt; polygons = [</span>
+<span class="sd">        ...     (Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 0, 0.9),</span>
+<span class="sd">        ...     (Polygon([(2, 0), (3, 0), (3, 1), (2, 1)]), 0, 0.9),</span>
+<span class="sd">        ...     (Polygon([(4, 0), (5, 0), (5, 1), (4, 1)]), 0, 0.9),</span>
+<span class="sd">        ...     (Polygon([(0, 0.5), (1, 0.5), (1, 2), (0, 2)]), 0, 0.9),</span>
+<span class="sd">        ...     (Polygon([(2, 1), (3, 1), (3, 3), (2, 3)]), 0, 0.9),</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; rtree = build_rtree(polygons)</span>
+<span class="sd">        &gt;&gt;&gt; clustered_polygons = cluster_polygons(polygons, rtree)</span>
+<span class="sd">        &gt;&gt;&gt; assert len(clustered_polygons) == 3</span>
+<span class="sd">        &gt;&gt;&gt; assert sorted(clustered_polygons[0]) == [0, 3]</span>
+<span class="sd">        &gt;&gt;&gt; assert sorted(clustered_polygons[1]) == [1, 4]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        polygons (List[Tuple[Polygon, float, float]]): List of polygons,</span>
+<span class="sd">            where each polygon is a tuple of the polygon, the class label,</span>
+<span class="sd">            and the confidence score.</span>
+<span class="sd">        rtree_index (rtree.index.Index): R-Tree index of the polygons.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[List[Polygon]]:</span>
+<span class="sd">            A list of clusters,</span>
+<span class="sd">            where each cluster is a list of non-overlapping polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create a list of adjacent polygons for each polygon and</span>
+    <span class="c1"># a list of visited polygons</span>
+    <span class="n">adj_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">polygons</span><span class="p">))]</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over all polygons</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">poly_tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">polygons</span><span class="p">):</span>
+        <span class="c1"># Get the polygon</span>
+        <span class="n">poly</span> <span class="o">=</span> <span class="n">poly_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Get all polygons that intersect with the current polygon</span>
+        <span class="n">intersecting_polygons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">rtree_index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">bounds</span><span class="p">))</span>
+        <span class="c1"># Remove the current polygon from the list of intersecting polygons</span>
+        <span class="n">intersecting_polygons</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="c1"># Update the adjacency list</span>
+        <span class="n">adj_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">intersecting_polygons</span>
+
+    <span class="c1"># Create a list of clusters</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Iterate over all polygons</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">polygons</span><span class="p">)):</span>
+        <span class="c1"># If the current polygon has not been visited</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="c1"># Perform a depth-first search to find all connected components</span>
+            <span class="c1"># Due to RecursionError: maximum recursion depth exceeded</span>
+            <span class="c1"># connected_component = dfs_recursive(i, visited, adj_list)</span>
+            <span class="n">connected_component</span> <span class="o">=</span> <span class="n">dfs_iterative</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">)</span>
+            <span class="c1"># # Create a cluster from the connected component</span>
+            <span class="c1"># cluster = [polygons[j] for j in connected_component]</span>
+            <span class="c1"># # Append the cluster to the list of clusters</span>
+            <span class="c1"># Append the connected component (cluster) to the list of clusters</span>
+            <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">connected_component</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">clusters</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.nms.nms" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">nms</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">distributed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nms_method</span><span class="o">=</span><span class="s1">&#39;Default&#39;</span><span class="p">,</span> <span class="n">intersection_method</span><span class="o">=</span><span class="s1">&#39;IOU&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Apply Non-Maximum Suppression (NMS) to a set of polygons.
+Method works with distributed computing for efficient processing and clustering.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone.nms</span> <span class="kn">import</span> <span class="n">nms</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span><span class="p">[</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">11.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">14.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">nms</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span> <span class="s2">&quot;IOU&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+      <p>results = nms(input_data, None, nms_method, intersection_method, threshold, sigma)
+assert sorted(results) == expected</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>input_data</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>, <span title="typing.Tuple">Tuple</span>[<span title="shapely.geometry.Polygon">Polygon</span>, float, float]]</code>
+          </td>
+          <td><p>List of tuples of Polygon, class, score or numpy array of polygons.
+Each polygon in the numpy array is represented by a 1D array of n % 2
+coordinates (x1, y1, x2, y2, .., x(n-1), y(n-1), class, score).</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>distributed</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The distributed computing method to use,
+one of (None, "Ray", "Dask").. Defaults to None.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>nms_method</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The NMS method to use, one of ("Default", "Soft", "Class Agnostic").
+Defaults to "Default".</p></td>
+          <td>
+                <code>&#39;Default&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>intersection_method</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The method to compute intersections, one of ("IOU", "IOS", "Dice", "IOT").
+Defaults to "IOU".</p></td>
+          <td>
+                <code>&#39;IOU&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>threshold</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The threshold for the NMS(intersection) method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>sigma</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The sigma for the Soft NMS method. Defaults to 0.5.</p></td>
+          <td>
+                <code>0.5</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>**kwargs</code></td>
+          <td>
+          </td>
+          <td><p>Additional arguments for the NMS method.
+Any keyword arguments for the distributed computing should be passed here.</p></td>
+          <td>
+                <code>{}</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[int]</code>
+          </td>
+          <td><p>List[int]: List of indices of the kept polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/nms.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">nms</span><span class="p">(</span>
+    <span class="n">input_data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Polygon</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+    <span class="n">distributed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">nms_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+    <span class="n">intersection_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;IOU&quot;</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply Non-Maximum Suppression (NMS) to a set of polygons.</span>
+<span class="sd">    Method works with distributed computing for efficient processing and clustering.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; from polygone.nms import nms</span>
+<span class="sd">        &gt;&gt;&gt; input_data = np.array(</span>
+<span class="sd">        ... [</span>
+<span class="sd">        ...     [0.0, 0.0, 2.0, 0.0, 2.0, 2.0, 0.0, 2.0, 1.0, 0.9],</span>
+<span class="sd">        ...     [1.0, 0.0, 3.0, 0.0, 3.0, 2.0, 1.0, 2.0, 1.0, 0.8],</span>
+<span class="sd">        ...     [4.0, 4.0, 6.0, 4.0, 6.0, 6.0, 4.0, 6.0, 5.0, 0.95],</span>
+<span class="sd">        ...     [10.0, 10.0, 12.0, 10.0, 12.0, 12.0, 10.0, 12.0, 11.0, 0.9],</span>
+<span class="sd">        ...     [11.0, 10.0, 13.0, 10.0, 13.0, 12.0, 11.0, 12.0, 11.0, 0.8],</span>
+<span class="sd">        ...     [14.0, 14.0, 16.0, 14.0, 16.0, 16.0, 14.0, 16.0, 15.0, 0.95],</span>
+<span class="sd">        ... ])</span>
+<span class="sd">        &gt;&gt;&gt; results = nms(input_data, None, &quot;Default&quot;, &quot;IOU&quot;, 0.3, 0.5)</span>
+<span class="sd">        &gt;&gt;&gt; assert sorted(results) == [0, 2, 3, 5]</span>
+
+<span class="sd">    results = nms(input_data, None, nms_method, intersection_method, threshold, sigma)</span>
+<span class="sd">    assert sorted(results) == expected</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_data (Union[np.ndarray, Tuple[Polygon, float, float]]):</span>
+<span class="sd">            List of tuples of Polygon, class, score or numpy array of polygons.</span>
+<span class="sd">            Each polygon in the numpy array is represented by a 1D array of n % 2</span>
+<span class="sd">            coordinates (x1, y1, x2, y2, .., x(n-1), y(n-1), class, score).</span>
+<span class="sd">        distributed (Optional[str], optional):</span>
+<span class="sd">            The distributed computing method to use,</span>
+<span class="sd">            one of (None, &quot;Ray&quot;, &quot;Dask&quot;).. Defaults to None.</span>
+<span class="sd">        nms_method (str, optional):</span>
+<span class="sd">            The NMS method to use, one of (&quot;Default&quot;, &quot;Soft&quot;, &quot;Class Agnostic&quot;).</span>
+<span class="sd">            Defaults to &quot;Default&quot;.</span>
+<span class="sd">        intersection_method (str, optional):</span>
+<span class="sd">            The method to compute intersections, one of (&quot;IOU&quot;, &quot;IOS&quot;, &quot;Dice&quot;, &quot;IOT&quot;).</span>
+<span class="sd">            Defaults to &quot;IOU&quot;.</span>
+<span class="sd">        threshold (float, optional):</span>
+<span class="sd">            The threshold for the NMS(intersection) method. Defaults to 0.5.</span>
+<span class="sd">        sigma (float, optional):</span>
+<span class="sd">            The sigma for the Soft NMS method. Defaults to 0.5.</span>
+<span class="sd">        **kwargs: Additional arguments for the NMS method.</span>
+<span class="sd">            Any keyword arguments for the distributed computing should be passed here.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]: List of indices of the kept polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if the input data is a list of polygons or a 2D NumPy array</span>
+    <span class="n">polygons</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">polygons</span> <span class="o">=</span> <span class="n">input_data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid input data type. Expected a list of polygons or a 2D NumPy array.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Check distributed computing method</span>
+    <span class="k">if</span> <span class="n">distributed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">distributed</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">VALID_DISTRIBUTED_METHODS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Invalid distributed computing method: </span><span class="si">{</span><span class="n">distributed</span><span class="si">}</span><span class="s2">. &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Allowed methods are: </span><span class="si">{</span><span class="n">VALID_DISTRIBUTED_METHODS</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Check NMS method</span>
+    <span class="k">if</span> <span class="n">nms_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">VALID_NMS_METHODS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid NMS method: </span><span class="si">{</span><span class="n">nms_method</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Allowed methods are: </span><span class="si">{</span><span class="n">VALID_NMS_METHODS</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Check intersection method</span>
+    <span class="k">if</span> <span class="n">intersection_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">INTERSECTION_METHODS</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid intersection method: </span><span class="si">{</span><span class="n">intersection_method</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Allowed methods are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">INTERSECTION_METHODS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Get the intersection function</span>
+    <span class="n">intersection_func</span> <span class="o">=</span> <span class="n">INTERSECTION_METHODS</span><span class="p">[</span><span class="n">intersection_method</span><span class="p">]</span>
+
+    <span class="c1"># Convert input data to Shapely Polygons and store class and confidence</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+            <span class="n">polygon_coords</span> <span class="o">=</span> <span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">class_label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">confidence</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">polygon</span> <span class="o">=</span> <span class="n">create_polygon</span><span class="p">(</span><span class="n">polygon_coords</span><span class="p">)</span>
+            <span class="n">polygons</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">polygon</span><span class="p">,</span> <span class="n">class_label</span><span class="p">,</span> <span class="n">confidence</span><span class="p">))</span>
+
+    <span class="c1"># Build R-Tree index</span>
+    <span class="n">rtree</span> <span class="o">=</span> <span class="n">build_rtree</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
+
+    <span class="c1"># Cluster polygons into non-overlapping subregions</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_polygons</span><span class="p">(</span><span class="n">polygons</span><span class="p">,</span> <span class="n">rtree</span><span class="p">)</span>
+    <span class="n">polygon_clusters</span> <span class="o">=</span> <span class="p">[[</span><span class="n">polygons</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">]</span> <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">]</span>
+
+    <span class="c1"># Apply NMS to the clustered polygons</span>
+    <span class="k">if</span> <span class="n">distributed</span> <span class="o">==</span> <span class="s2">&quot;Ray&quot;</span><span class="p">:</span>
+        <span class="c1"># Import Ray</span>
+        <span class="kn">import</span> <span class="nn">ray</span>
+
+        <span class="c1"># Check if Ray is initialized</span>
+        <span class="k">if</span> <span class="n">ray</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>
+            <span class="n">initialize_ray</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">initialize_ray</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>  <span class="c1"># Initialize Ray</span>
+
+        <span class="c1"># Scatter the polygon clusters to the Ray cluster</span>
+        <span class="n">polygon_futures</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">ray</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">polygon_cluster</span><span class="p">)</span> <span class="k">for</span> <span class="n">polygon_cluster</span> <span class="ow">in</span> <span class="n">polygon_clusters</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Apply NMS to each cluster</span>
+        <span class="n">nms_polygons_futures</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">ray</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="n">apply_distributed_polygon_nms</span><span class="p">)</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span>
+                <span class="n">polygon_future</span><span class="p">,</span> <span class="n">nms_method</span><span class="p">,</span> <span class="n">intersection_func</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sigma</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">polygon_future</span> <span class="ow">in</span> <span class="n">polygon_futures</span>
+        <span class="p">]</span>
+        <span class="n">nms_polygons</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nms_polygons_futures</span><span class="p">)</span>
+
+        <span class="c1"># Shutdown Ray if it was initialized in this function</span>
+        <span class="k">if</span> <span class="n">initialize_ray</span><span class="p">:</span>
+            <span class="n">ray</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>  <span class="c1"># Shutdown Ray</span>
+    <span class="k">elif</span> <span class="n">distributed</span> <span class="o">==</span> <span class="s2">&quot;Dask&quot;</span><span class="p">:</span>
+        <span class="c1"># Use an existing Dask client if provided, or create a new one</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;client&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+            <span class="n">initialize_dask</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">initialize_dask</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Scatter the polygon clusters to the Dask cluster</span>
+        <span class="n">polygon_futures</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">polygon_clusters</span><span class="p">)</span>
+
+        <span class="c1"># Apply NMS to each cluster and gather the results</span>
+        <span class="n">nms_polygon_futures</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span>
+                <span class="n">apply_distributed_polygon_nms</span><span class="p">,</span>
+                <span class="n">nms_method</span><span class="o">=</span><span class="n">nms_method</span><span class="p">,</span>
+                <span class="n">intersection_method</span><span class="o">=</span><span class="n">intersection_func</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+                <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">polygon_futures</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">nms_polygons</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">nms_polygon_futures</span><span class="p">)</span>
+        <span class="c1"># Shutdown Dask if it was initialized in this function</span>
+        <span class="k">if</span> <span class="n">initialize_dask</span><span class="p">:</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Shutdown Dask</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Apply NMS to each cluster</span>
+        <span class="n">nms_polygons</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">apply_distributed_polygon_nms</span><span class="p">(</span>
+                <span class="n">polygon_cluster</span><span class="p">,</span> <span class="n">nms_method</span><span class="p">,</span> <span class="n">intersection_func</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sigma</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">polygon_cluster</span> <span class="ow">in</span> <span class="n">polygon_clusters</span>
+        <span class="p">]</span>
+
+    <span class="c1"># Combine the kept polygon indices from each cluster and</span>
+    <span class="c1"># get the keep indices from each cluster</span>
+    <span class="n">keep_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">cluster_nms</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">clusters</span><span class="p">,</span> <span class="n">nms_polygons</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">cluster_nms</span><span class="p">:</span>
+            <span class="n">keep_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">keep_indices</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="polygone_nms.utils" class="doc doc-heading">
+          <code>polygone_nms.utils</code>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.bbox_to_polygon_array" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">bbox_to_polygon_array</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Convert bbox [xmin, ymin, xmax, ymax] to polygon format
+[xmin, ymin, xmax, ymin, xmax, ymax, xmin, ymax]</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>coords</code></td>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>bbox coordinates</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>np.ndarray: polygon coordinates</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bbox_to_polygon_array</span><span class="p">(</span><span class="n">coords</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert bbox [xmin, ymin, xmax, ymax] to polygon format</span>
+<span class="sd">    [xmin, ymin, xmax, ymin, xmax, ymax, xmin, ymax]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        coords (np.ndarray): bbox coordinates</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: polygon coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">coords</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.build_rtree" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">build_rtree</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Build an R-tree index from a list of tuples having polygon, class and confidence.</p>
+<p>The R-tree index is used to perform spatial queries on the input polygons.
+The input polygons are represented as Shapely Polygons.</p>
+<p>The R-tree index is built using the rtree library.
+More information about the R-tree library can be found here:
+https://pypi.org/project/rtree/</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">build_rtree</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p3</span> <span class="o">=</span> <span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]),</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rtree_index</span> <span class="o">=</span> <span class="n">build_rtree</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">rtree_index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">query_bounds</span><span class="p">))</span>
+<span class="go">[0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">rtree_index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">query_bounds</span><span class="p">))</span>
+<span class="go">[2]</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>polygons</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="shapely.geometry.Polygon">Polygon</span>, float, float]]</code>
+          </td>
+          <td><p>A list of tuples having polygon, class and confidence.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>rtree.<span title="rtree.index">index</span>.<span title="rtree.index.Index">Index</span></code>
+          </td>
+          <td><p>rtree.index.Index: An R-tree index containing the input polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">build_rtree</span><span class="p">(</span><span class="n">polygons</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Polygon</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">rtree</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">Index</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build an R-tree index from a list of tuples having polygon, class and confidence.</span>
+
+<span class="sd">    The R-tree index is used to perform spatial queries on the input polygons.</span>
+<span class="sd">    The input polygons are represented as Shapely Polygons.</span>
+
+<span class="sd">    The R-tree index is built using the rtree library.</span>
+<span class="sd">    More information about the R-tree library can be found here:</span>
+<span class="sd">    https://pypi.org/project/rtree/</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import build_rtree</span>
+<span class="sd">        &gt;&gt;&gt; p1 = (Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 0, 0.9)</span>
+<span class="sd">        &gt;&gt;&gt; p2 = (Polygon([(2, 0), (3, 0), (3, 1), (2, 1)]), 1, 0.8)</span>
+<span class="sd">        &gt;&gt;&gt; p3 = (Polygon([(1, 2), (2, 2), (2, 3), (1, 3)]), 1, 0.7)</span>
+<span class="sd">        &gt;&gt;&gt; rtree_index = build_rtree([p1, p2, p3])</span>
+<span class="sd">        &gt;&gt;&gt; query_bounds = (0.5, 0.5, 1.5, 1.5)</span>
+<span class="sd">        &gt;&gt;&gt; list(rtree_index.intersection(query_bounds))</span>
+<span class="sd">        [0]</span>
+<span class="sd">        &gt;&gt;&gt; query_bounds = (1.5, 1.5, 2.5, 2.5)</span>
+<span class="sd">        &gt;&gt;&gt; list(rtree_index.intersection(query_bounds))</span>
+<span class="sd">        [2]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        polygons (List[Tuple[Polygon, float, float]]):</span>
+<span class="sd">            A list of tuples having polygon, class and confidence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rtree.index.Index: An R-tree index containing the input polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create an R-tree index</span>
+    <span class="n">rtree_idx</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">Index</span><span class="p">()</span>
+
+    <span class="c1"># Iterate over the polygons and add them to the R-tree index</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">polygons</span><span class="p">):</span>
+        <span class="c1"># Retrieve polygon, class, and confidence</span>
+        <span class="n">polygon</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span> <span class="o">=</span> <span class="n">row</span>
+
+        <span class="c1"># Calculate the bounding box of the polygon</span>
+        <span class="n">bbox</span> <span class="o">=</span> <span class="n">polygon</span><span class="o">.</span><span class="n">bounds</span>  <span class="c1"># Returns (minx, miny, maxx, maxy)</span>
+
+        <span class="c1"># Insert the bounding box into the R-tree</span>
+        <span class="n">rtree_idx</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+            <span class="n">idx</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="n">polygon</span><span class="p">,</span> <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rtree_idx</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.create_polygon" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">none_value</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a Shapely Polygon from a numpy array row of coordinates.
+If the number of coordinates is odd, an error is raised.
+If any of the coordinates is of <code>none_value</code>, it is ignored.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">create_polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">is_valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">area</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">is_valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">area</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">is_valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">area</span>
+<span class="go">0.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">The number of coordinates must be even.</span>
+</code></pre></div>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td><p>If the number of coordinates is odd.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>coords</code></td>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>A numpy array of coordinates for a shapely.geometry.Polygon.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>none_value</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>A value to be ignored. Defaults to -1.0.</p></td>
+          <td>
+                <code>-1.0</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>Polygon</code></td>          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>A Shapely Polygon.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">none_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polygon</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Shapely Polygon from a numpy array row of coordinates.</span>
+<span class="sd">    If the number of coordinates is odd, an error is raised.</span>
+<span class="sd">    If any of the coordinates is of `none_value`, it is ignored.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import create_polygon</span>
+<span class="sd">        &gt;&gt;&gt; coords = np.array([0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0])</span>
+<span class="sd">        &gt;&gt;&gt; poly = create_polygon(coords)</span>
+<span class="sd">        &gt;&gt;&gt; poly.is_valid</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; poly.area</span>
+<span class="sd">        1.0</span>
+<span class="sd">        &gt;&gt;&gt; coords = np.array([2.0, 0.0, 3.0, 0.0, 3.0, 1.0, 2.0, 1.0, 2.0, 0.0])</span>
+<span class="sd">        &gt;&gt;&gt; poly = create_polygon(coords)</span>
+<span class="sd">        &gt;&gt;&gt; poly.is_valid</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; poly.area</span>
+<span class="sd">        1.0</span>
+<span class="sd">        &gt;&gt;&gt; coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0])</span>
+<span class="sd">        &gt;&gt;&gt; poly = create_polygon(coords)</span>
+<span class="sd">        &gt;&gt;&gt; poly.is_valid</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; poly.area</span>
+<span class="sd">        0.5</span>
+<span class="sd">        &gt;&gt;&gt; coords = np.array([1.0, 2.0, 2.0, 2.0, 2.0, 3.0, -1.0, -1.0, 1.0, 2.0])</span>
+<span class="sd">        &gt;&gt;&gt; poly = create_polygon(coords)</span>
+<span class="sd">        Traceback (most recent call last):</span>
+<span class="sd">            ...</span>
+<span class="sd">        ValueError: The number of coordinates must be even.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the number of coordinates is odd.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        coords (np.ndarray):</span>
+<span class="sd">            A numpy array of coordinates for a shapely.geometry.Polygon.</span>
+<span class="sd">        none_value (float, optional): A value to be ignored. Defaults to -1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Polygon: A Shapely Polygon.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The coordinates must be a 1D array.&quot;</span>
+    <span class="k">if</span> <span class="n">coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of coordinates must be even.&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;The number of coordinates must be even.&quot;</span>
+
+    <span class="k">if</span> <span class="n">coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">bbox_to_polygon_array</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">none_value</span> <span class="ow">and</span> <span class="n">coords</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">none_value</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.dfs_iterative" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">dfs_iterative</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Perform a depth-first search on an adjacency list (graph) in a iterative manner.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">dfs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adj_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">adj_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">)</span>
+<span class="go">[0, 1, 2, 3]</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>node</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The starting node for the DFS traversal.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>visited</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[bool]</code>
+          </td>
+          <td><p>list of booleans indicating whether a node has been visited.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>adj_list</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.List">List</span>[int]]</code>
+          </td>
+          <td><p>The adjacency list representing the graph.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[int]</code>
+          </td>
+          <td><p>List[int]:
+A list of nodes in the connected component found by the DFS traversal.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">dfs_iterative</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">visited</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">adj_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a depth-first search on an adjacency list (graph) in a iterative manner.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import dfs</span>
+<span class="sd">        &gt;&gt;&gt; adj_list = [[1], [0, 2, 3], [1], [1]]</span>
+<span class="sd">        &gt;&gt;&gt; visited = [False] * len(adj_list)</span>
+<span class="sd">        &gt;&gt;&gt; dfs(0, visited, adj_list)</span>
+<span class="sd">        [0, 1, 2, 3]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        node (int): The starting node for the DFS traversal.</span>
+<span class="sd">        visited (List[bool]):</span>
+<span class="sd">            list of booleans indicating whether a node has been visited.</span>
+<span class="sd">        adj_list (List[List[int]]): The adjacency list representing the graph.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]:</span>
+<span class="sd">            A list of nodes in the connected component found by the DFS traversal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create a list to store the connected component</span>
+    <span class="n">connected_component</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Create a stack</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="p">]</span>
+
+    <span class="c1"># Iterate over the stack</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="c1"># Pop the last element from the stack</span>
+        <span class="n">curr_node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="c1"># If the node has not been visited, mark it as visited and</span>
+        <span class="c1"># add it to the connected component</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">curr_node</span><span class="p">]:</span>
+            <span class="n">visited</span><span class="p">[</span><span class="n">curr_node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">connected_component</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_node</span><span class="p">)</span>
+            <span class="c1"># Add the neighbors of the current node to the stack if</span>
+            <span class="c1"># they have not been visited</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="nb">reversed</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">neighbor</span>
+                        <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">adj_list</span><span class="p">[</span><span class="n">curr_node</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">connected_component</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.dfs_recursive" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">dfs_recursive</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Perform a depth-first search on an adjacency list (graph) in a recursive manner.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">dfs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adj_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">adj_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">)</span>
+<span class="go">[0, 1, 2, 3]</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>node</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The starting node for the DFS traversal.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>visited</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[bool]</code>
+          </td>
+          <td><p>list of booleans indicating whether a node has been visited.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>adj_list</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.List">List</span>[int]]</code>
+          </td>
+          <td><p>The adjacency list representing the graph.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[int]</code>
+          </td>
+          <td><p>List[int]:
+A list of nodes in the connected component found by the DFS traversal.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">dfs_recursive</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">visited</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">adj_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a depth-first search on an adjacency list (graph) in a recursive manner.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import dfs</span>
+<span class="sd">        &gt;&gt;&gt; adj_list = [[1], [0, 2, 3], [1], [1]]</span>
+<span class="sd">        &gt;&gt;&gt; visited = [False] * len(adj_list)</span>
+<span class="sd">        &gt;&gt;&gt; dfs(0, visited, adj_list)</span>
+<span class="sd">        [0, 1, 2, 3]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        node (int): The starting node for the DFS traversal.</span>
+<span class="sd">        visited (List[bool]):</span>
+<span class="sd">            list of booleans indicating whether a node has been visited.</span>
+<span class="sd">        adj_list (List[List[int]]): The adjacency list representing the graph.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]:</span>
+<span class="sd">            A list of nodes in the connected component found by the DFS traversal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Mark the node as visited</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Add the node to the list</span>
+    <span class="n">connected_component</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="p">]</span>
+
+    <span class="c1"># Iterate over the neighbors of the node</span>
+    <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">adj_list</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+        <span class="c1"># If the neighbor has not been visited, perform a depth-first search on it</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]:</span>
+            <span class="c1"># Extend the connected component with the connected component</span>
+            <span class="c1"># found by the DFS traversal pf the neighbor</span>
+            <span class="n">connected_component</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dfs_recursive</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">adj_list</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">connected_component</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.dice" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">dice</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the dice coefficient between two Shapely Polygons.</p>
+<p>The Dice coefficient is a similarity measure used in image segmentation tasks,
+particularly for comparing binary segmentation masks.
+It is defined as the ratio of twice the area of intersection
+between the predicted and ground truth masks to the sum of their areas.</p>
+<p>Dice=(2 * Area of Intersection) / (Area of First Polygon + Area of Second Polygon)</p>
+<p>The Dice coefficient ranges from 0 (no overlap) to 1 (perfect overlap).</p>
+
+<details class="notes">
+  <summary>Notes</summary>
+  <p>It is more sensitive to the size of the regions than IoU and is
+particularly useful for evaluating the performance of segmentation algorithms
+in cases where the regions of interest have varying sizes and shapes.</p>
+</details>
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">dice</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly2</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dice</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span>
+<span class="go">0.5</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>poly1</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The first polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>poly2</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The second polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>float</code></td>          <td>
+                <code>float</code>
+          </td>
+          <td><p>The Dice value between the two Shapely Polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">dice</span><span class="p">(</span><span class="n">poly1</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">poly2</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the dice coefficient between two Shapely Polygons.</span>
+
+<span class="sd">    The Dice coefficient is a similarity measure used in image segmentation tasks,</span>
+<span class="sd">    particularly for comparing binary segmentation masks.</span>
+<span class="sd">    It is defined as the ratio of twice the area of intersection</span>
+<span class="sd">    between the predicted and ground truth masks to the sum of their areas.</span>
+
+<span class="sd">    Dice=(2 * Area of Intersection) / (Area of First Polygon + Area of Second Polygon)</span>
+
+<span class="sd">    The Dice coefficient ranges from 0 (no overlap) to 1 (perfect overlap).</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        It is more sensitive to the size of the regions than IoU and is</span>
+<span class="sd">        particularly useful for evaluating the performance of segmentation algorithms</span>
+<span class="sd">        in cases where the regions of interest have varying sizes and shapes.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import dice</span>
+<span class="sd">        &gt;&gt;&gt; poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; dice(poly1, poly2)</span>
+<span class="sd">        0.5</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        poly1 (Polygon):</span>
+<span class="sd">            The first polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">        poly2 (Polygon):</span>
+<span class="sd">            The second polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The Dice value between the two Shapely Polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the intersection</span>
+    <span class="n">intersection</span> <span class="o">=</span> <span class="n">poly1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">poly2</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the sum area</span>
+    <span class="n">sum_area</span> <span class="o">=</span> <span class="n">poly1</span><span class="o">.</span><span class="n">area</span> <span class="o">+</span> <span class="n">poly2</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># If the sum area is 0, than Polygons are empty in future are information #TODO</span>
+    <span class="k">if</span> <span class="n">sum_area</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># Calculate the Dice coefficient</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">intersection</span><span class="o">.</span><span class="n">area</span> <span class="o">/</span> <span class="n">sum_area</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.ios" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ios</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the intersection over smaller (IoS) between two Shapely Polygons.</p>
+<p>IoS is another overlap metric that measures the ratio of the area of
+intersection between two regions to the area of the smaller region.</p>
+<p>IoS = (Area of Intersection) / (Area of the Smaller Region)</p>
+<p>An IoU score of 1 means that the predicted and ground truth regions
+perfectly overlap, while a score of 0 means that there's no overlap at all.</p>
+
+<details class="notes">
+  <summary>Notes</summary>
+  <p>Unlike IoU, IoS is more sensitive to the size of the regions being compared.
+In certain scenarios, using IoS can help to better evaluate the quality
+of detections, especially when dealing with objects of varying sizes.</p>
+</details>
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">ios</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly2</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ios</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span>
+<span class="go">0.5</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>poly1</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The first polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>poly2</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The second polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>float</code></td>          <td>
+                <code>float</code>
+          </td>
+          <td><p>The IoS value between the two Shapely Polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ios</span><span class="p">(</span><span class="n">poly1</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">poly2</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the intersection over smaller (IoS) between two Shapely Polygons.</span>
+
+<span class="sd">    IoS is another overlap metric that measures the ratio of the area of</span>
+<span class="sd">    intersection between two regions to the area of the smaller region.</span>
+
+<span class="sd">    IoS = (Area of Intersection) / (Area of the Smaller Region)</span>
+
+<span class="sd">    An IoU score of 1 means that the predicted and ground truth regions</span>
+<span class="sd">    perfectly overlap, while a score of 0 means that there&#39;s no overlap at all.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        Unlike IoU, IoS is more sensitive to the size of the regions being compared.</span>
+<span class="sd">        In certain scenarios, using IoS can help to better evaluate the quality</span>
+<span class="sd">        of detections, especially when dealing with objects of varying sizes.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import ios</span>
+<span class="sd">        &gt;&gt;&gt; poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; ios(poly1, poly2)</span>
+<span class="sd">        0.5</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        poly1 (Polygon):</span>
+<span class="sd">            The first polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">        poly2 (Polygon):</span>
+<span class="sd">            The second polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The IoS value between the two Shapely Polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the intersection area</span>
+    <span class="n">intersection_area</span> <span class="o">=</span> <span class="n">poly1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">poly2</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># Calculate the area of the smaller polygon</span>
+    <span class="n">smaller_area</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">poly1</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">poly2</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+
+    <span class="c1"># If the smaller area is 0, return 0</span>
+    <span class="k">if</span> <span class="n">smaller_area</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># Calculate the IoS</span>
+    <span class="k">return</span> <span class="n">intersection_area</span> <span class="o">/</span> <span class="n">smaller_area</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.iot" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">iot</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">compared</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the intersection over target (IoT) between two Shapely Polygons.</p>
+<p>IoT is another overlap metric that measures the ratio of the area of
+intersection between the Target and Compared regions to the area of
+the Target region.</p>
+<p>IoT = (Area of Intersection) / (Area of the Target Region)</p>
+<p>An IoT score of 1 means that the compared region perfectly overlaps
+the target region, while a score of 0 means that there's no overlap at all.</p>
+
+<details class="notes">
+  <summary>Notes</summary>
+  <p>This is a testing metrics designed for NMS algorithm.
+My intuition is that if used
+with NMS algorithm it can result in a better performance.</p>
+</details>      <p>the predicted and ground truth regions perfectly overlap,
+while a score of 0 means that there's no overlap at all.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">iot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly2</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iot</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span>
+<span class="go">0.5</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>target</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The target polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>compared</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The second polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>float</code></td>          <td>
+                <code>float</code>
+          </td>
+          <td><p>The IOT value between target and compared Shapely Polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">iot</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">compared</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the intersection over target (IoT) between two Shapely Polygons.</span>
+
+<span class="sd">    IoT is another overlap metric that measures the ratio of the area of</span>
+<span class="sd">    intersection between the Target and Compared regions to the area of</span>
+<span class="sd">    the Target region.</span>
+
+<span class="sd">    IoT = (Area of Intersection) / (Area of the Target Region)</span>
+
+<span class="sd">    An IoT score of 1 means that the compared region perfectly overlaps</span>
+<span class="sd">    the target region, while a score of 0 means that there&#39;s no overlap at all.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        This is a testing metrics designed for NMS algorithm.</span>
+<span class="sd">        My intuition is that if used</span>
+<span class="sd">        with NMS algorithm it can result in a better performance.</span>
+
+<span class="sd">    the predicted and ground truth regions perfectly overlap,</span>
+<span class="sd">    while a score of 0 means that there&#39;s no overlap at all.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import iot</span>
+<span class="sd">        &gt;&gt;&gt; poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; iot(poly1, poly2)</span>
+<span class="sd">        0.5</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target (Polygon):</span>
+<span class="sd">            The target polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">        compared (Polygon):</span>
+<span class="sd">            The second polygon represented by a shapely.geometry.Polygon object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The IOT value between target and compared Shapely Polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the intersection area</span>
+    <span class="n">intersection_area</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">compared</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># Calculate the area of the target polygon</span>
+    <span class="n">target_area</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># If the target area is 0, than Polygons are empty in future are information #TODO</span>
+    <span class="k">if</span> <span class="n">target_area</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># Calculate the IoT</span>
+    <span class="k">return</span> <span class="n">intersection_area</span> <span class="o">/</span> <span class="n">target_area</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="polygone_nms.utils.iou" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">iou</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the intersection over union (IoU) between two Shapely Polygons.</p>
+<p>IoU is a popular metric for evaluating the quality of
+object detections and segmentations. It measures the ratio of the area of overlap
+between two regions (e.g., predicted and ground truth bounding boxes)
+to the area of their union.</p>
+<p>IOU = Area of intersection / Area of union
+   ~= Area of intersection / (Area of poly1 + Area of poly2 - Area of intersection)</p>
+<p>An IoU score of 1 means that the predicted and ground truth regions
+perfectly overlap, while a score of 0 means that there's no overlap at all.</p>
+
+<details class="notes">
+  <summary>Notes</summary>
+  <p>In object detection and segmentation tasks,
+a higher IoU threshold indicates a stricter evaluation criterion.</p>
+</details>
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polygone_nms.utils</span> <span class="kn">import</span> <span class="n">iou</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poly2</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iou</span><span class="p">(</span><span class="n">poly1</span><span class="p">,</span> <span class="n">poly2</span><span class="p">)</span>
+<span class="go">0.3333333333333333</span>
+</code></pre></div>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>poly1</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The first polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>poly2</code></td>
+          <td>
+                <code><span title="shapely.geometry.Polygon">Polygon</span></code>
+          </td>
+          <td><p>The second polygon represented by a shapely.geometry.Polygon object.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>float</code></td>          <td>
+                <code>float</code>
+          </td>
+          <td><p>The IoU value between the two Shapely Polygons.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>polygone_nms/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">iou</span><span class="p">(</span><span class="n">poly1</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">poly2</span><span class="p">:</span> <span class="n">Polygon</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the intersection over union (IoU) between two Shapely Polygons.</span>
+
+<span class="sd">    IoU is a popular metric for evaluating the quality of</span>
+<span class="sd">    object detections and segmentations. It measures the ratio of the area of overlap</span>
+<span class="sd">    between two regions (e.g., predicted and ground truth bounding boxes)</span>
+<span class="sd">    to the area of their union.</span>
+
+<span class="sd">    IOU = Area of intersection / Area of union</span>
+<span class="sd">       ~= Area of intersection / (Area of poly1 + Area of poly2 - Area of intersection)</span>
+
+<span class="sd">    An IoU score of 1 means that the predicted and ground truth regions</span>
+<span class="sd">    perfectly overlap, while a score of 0 means that there&#39;s no overlap at all.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        In object detection and segmentation tasks,</span>
+<span class="sd">        a higher IoU threshold indicates a stricter evaluation criterion.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from shapely.geometry import Polygon</span>
+<span class="sd">        &gt;&gt;&gt; from polygone_nms.utils import iou</span>
+<span class="sd">        &gt;&gt;&gt; poly1 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; poly2 = Polygon([(0.5, 0), (1.5, 0), (1.5, 1), (0.5, 1)])</span>
+<span class="sd">        &gt;&gt;&gt; iou(poly1, poly2)</span>
+<span class="sd">        0.3333333333333333</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        poly1 (Polygon):</span>
+<span class="sd">            The first polygon represented by a shapely.geometry.Polygon object.</span>
+<span class="sd">        poly2 (Polygon):</span>
+<span class="sd">            The second polygon represented by a shapely.geometry.Polygon object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The IoU value between the two Shapely Polygons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the intersection area</span>
+    <span class="n">intersection_area</span> <span class="o">=</span> <span class="n">poly1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">poly2</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># Calculate the union</span>
+    <span class="n">union_area</span> <span class="o">=</span> <span class="n">poly1</span><span class="o">.</span><span class="n">area</span> <span class="o">+</span> <span class="n">poly2</span><span class="o">.</span><span class="n">area</span> <span class="o">-</span> <span class="n">intersection_area</span>
+    <span class="c1"># union_area = poly1.union(poly2).area tested and it&#39;s slower</span>
+
+    <span class="c1"># If the union area is 0, return 0</span>
+    <span class="k">if</span> <span class="n">union_area</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># Calculate the IoU</span>
+    <span class="k">return</span> <span class="n">intersection_area</span> <span class="o">/</span> <span class="n">union_area</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
