@@ -67,25 +67,24 @@ Here's a complete example that demonstrates how to use the PolyGoneNMS library:
 
 ```python
 import numpy as np
-from polygone_nms import polygone_nms
+from polygone_nms import nms
 
 # Sample input data
 data = np.array([
-    [0, 0, 1, 1, 0, 1, 1, 1, 0, 0.9],
-    [1, 1, 2, 2, 1, 1, 2, 2, 0, 0.8],
-    [2, 2, 3, 3, 2, 2, 3, 3, 1, 0.7],
+    [0, 0, 1, 1, 0, 1, 0, 0, 1, 0.9],
+    [0.5, 0.5, 1.5, 1.5, 0.5, 1.5, 0, 0, 1, 0.8],
 ])
 
 # Apply PolyGoneNMS with custom settings
-result = polygone_nms(
+result = nms(
     data,
     nms_method="Soft",
     intersection_method="Dice",
-    distributed="Ray",
+#    distributed="Ray",
 )
 
 # Print the filtered polygons
-print(result)
+print(data[result])
 ```
 
 This example uses Soft NMS with the Dice coefficient and Ray for distributed processing. The output will be the filtered polygons after applying the Non-Maximum Suppression.

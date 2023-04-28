@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7]
+
+### Added
+
+- updated docs with correct import of NMS algorithm.
+- updated `README.md` with correct import of NMS algorithm.
+- reimplemented `utils` to handle `ZeroDivisionError` errors.
+
 ## [0.1.6]
 
 ### Added
