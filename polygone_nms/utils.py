@@ -277,6 +277,10 @@ def iou(poly1: Polygon, poly2: Polygon) -> float:
     union_area = poly1.area + poly2.area - intersection_area
     # union_area = poly1.union(poly2).area tested and it's slower
 
+    # If the union area is 0, return 0
+    if union_area == 0:
+        return 0
+
     # Calculate the IoU
     return intersection_area / union_area
 
@@ -320,6 +324,10 @@ def ios(poly1: Polygon, poly2: Polygon) -> float:
     # Calculate the area of the smaller polygon
     smaller_area = min(poly1.area, poly2.area)
 
+    # If the smaller area is 0, return 0
+    if smaller_area == 0:
+        return 0
+
     # Calculate the IoS
     return intersection_area / smaller_area
 
@@ -361,8 +369,15 @@ def dice(poly1: Polygon, poly2: Polygon) -> float:
     # Calculate the intersection
     intersection = poly1.intersection(poly2)
 
+    # Calculate the sum area
+    sum_area = poly1.area + poly2.area
+
+    # If the sum area is 0, than Polygons are empty in future are information #TODO
+    if sum_area == 0:
+        return 0
+
     # Calculate the Dice coefficient
-    return 2 * intersection.area / (poly1.area + poly2.area)
+    return 2 * intersection.area / sum_area
 
 
 def iot(target: Polygon, compared: Polygon) -> float:
@@ -408,6 +423,10 @@ def iot(target: Polygon, compared: Polygon) -> float:
 
     # Calculate the area of the target polygon
     target_area = target.area
+
+    # If the target area is 0, than Polygons are empty in future are information #TODO
+    if target_area == 0:
+        return 0
 
     # Calculate the IoT
     return intersection_area / target_area

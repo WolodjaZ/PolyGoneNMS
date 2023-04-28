@@ -36,12 +36,16 @@ data = np.array([
 ])
 
 # Apply NMS
-results = polygone_nms(data, distributed=None, nms_method="Default", intersection_method="IOU")
+results = nms(data, distributed=None, nms_method="Default", intersection_method="IOU")
 
-print(results)
+print("Filtered indices:", results)
+
+# Filtered data
+print("Filtered data:")
+print(data[results])
 ```
 
-For a more detailed guide on using PolyGoneNMS, please see the [Quickstart](https://www.example.com/) in the documentation.
+For a more detailed guide on using PolyGoneNMS, please see the [Quickstart](https://wolodjaz.github.io/PolyGoneNMS/0.1.6/quickstart/) in the documentation.
 
 ## Documentation
 
