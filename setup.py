@@ -11,12 +11,19 @@ def read_requirements(path: str):
         return f.read().splitlines()
 
 
+def read_readme():
+    with open("README.md", "r", encoding="utf-8") as fh:
+        return fh.read()
+
+
 setup(
     name="polygone-nms",
     version=read_version(),
     description=(
         "Efficient and distributed " "polygon Non-Maximum Suppression (NMS) library"
     ),
+    long_description=read_readme(),
+    long_description_content_type="text/markdown",
     author="Vladimir Zaigrajew",
     author_email="vladimirzaigrajew@gmail.com",
     url="https://github.com/WolodjaZ/polygone-nms",
@@ -34,14 +41,12 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering :: Image Processing",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
-        "Topic :: Scientific/Engineering :: Image detection",
-        "Topic :: Scientific/Engineering :: Image Segmentation",
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Topic :: Scientific/Engineering :: Mathematics",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Utilities",
-        "Topic :: Postprocessing",
     ],
     python_requires=">=3.8",
 )
