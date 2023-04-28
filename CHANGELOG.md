@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6]
+
+### Added
+
+- Working Pypi upload structure
+
+## [0.1.5]
+
+PyPi tests
+## [0.1.4]
+
+PyPi tests
 ## [0.1.3]
 
 ### Added
